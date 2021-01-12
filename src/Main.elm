@@ -3,7 +3,6 @@ module Main exposing (main)
 import Browser
 import Canton exposing (Canton)
 import Css
-import Css.Global
 import Css.Media
 import Date exposing (Date)
 import Dict exposing (Dict)
@@ -183,7 +182,7 @@ view model =
                             ]
                         ]
                     ]
-                    [ Html.img [ src "/assets/images/ch_map.svg", css [ Css.width (Css.px 140) ] ] [] ]
+                    [ Html.img [ src "/assets/images/ch_map.svg", css [ Css.width (Css.px 140) ], Html.Styled.Attributes.alt "" ] [] ]
                 , Ui.heading1
                     []
                     [ Html.text (model.translator.msgId Translation.HeaderIntro1)
@@ -236,7 +235,13 @@ viewFooter : Translation.MultiTranslator -> Html Msg
 viewFooter translator =
     let
         footerLink url label =
-            Html.a [ css [ Css.color Ui.colors.secondary ], href url, Html.Styled.Attributes.target "_blank" ] [ Html.text label ]
+            Html.a
+                [ css [ Css.color Ui.colors.secondary ]
+                , href url
+                , Html.Styled.Attributes.target "_blank"
+                , Html.Styled.Attributes.rel "noopener"
+                ]
+                [ Html.text label ]
     in
     Html.footer
         [ css [ Css.backgroundColor (Css.hex "444"), Css.padding (Ui.spacing Ui.L), Css.color (Css.hex "fff") ] ]
