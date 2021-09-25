@@ -26,7 +26,8 @@ type alias VotationObject =
     , name : String
     , date : Date
     , results :
-        Dict String
+        Dict
+            String
             { yes : Int
             , no : Int
             }
@@ -704,6 +705,20 @@ toIndexedVotationObjects votationObjects =
         |> Dict.fromList
 
 
+filterMapDict : (a -> Maybe b) -> Dict comparable a -> Dict comparable b
+filterMapDict func =
+    Dict.foldl
+        (\k v acc ->
+            case func v of
+                Nothing ->
+                    acc
+
+                Just value ->
+                    Dict.insert k value acc
+        )
+        Dict.empty
+
+
 
 -- JSON
 
@@ -713,10 +728,19 @@ votationResultsDecoder language =
     let
         resultsDecoder =
             D.dict
-                (D.map2 (\yes no -> { yes = yes, no = no })
-                    (D.field "yes" D.int)
-                    (D.field "no" D.int)
+                (D.map2
+                    (\yes no ->
+                        case ( yes, no ) of
+                            ( Just nbYes, Just nbNo ) ->
+                                Just { yes = nbYes, no = nbNo }
+
+                            _ ->
+                                Nothing
+                    )
+                    (D.field "yes" (D.nullable D.int))
+                    (D.field "no" (D.nullable D.int))
                 )
+                |> D.map (filterMapDict identity)
 
         languageCode =
             case language of
