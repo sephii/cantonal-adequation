@@ -10,10 +10,10 @@ in mkShell {
 
     elmPackages.elm
     elmPackages.elm-live
+    elmPackages.elm-optimize-level-2
 
+    esbuild
     # For sponge
     moreutils
-    # For uglifyjs
-    nodejs-14_x
   ];
 }
