@@ -192,7 +192,7 @@ async def download_json_files(
 
 def main():
     dest_file = os.path.abspath(
-        os.path.join(os.path.dirname(__file__), "..", "dist", "results.json")
+        os.path.join(os.path.dirname(__file__), "..", "results.json")
     )
 
     if len(sys.argv) > 1:

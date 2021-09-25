@@ -5,7 +5,7 @@ https://adequation-cantonale.ch/ (FR) and https://kantonale-affinitaet.ch/ (DE).
 
 ## Local setup
 
-To run the project locally, you’ll need [the Nix package
+To run the project locally, it is recommended to use [the Nix package
 manager](https://nixos.org/guides/install-nix.html), so start by installing it.
 
 If you don’t want to install Nix (you should really try it!), you can also
@@ -16,9 +16,8 @@ Once Nix is installed, follow these steps:
 1. Clone the repository (`git clone https://github.com/sephii/cantonal-adequation`)
 2. `cd` into it (`cd cantonal-adequation`)
 3. Run a shell with the dependencies by running `nix-shell`
-4. Download the votation results by running `make fetch`
-5. Start the development server by running `make serve`
-6. Point your web browser to http://localhost:8000/
+4. Start the development server by running `make serve`
+5. Point your web browser to http://localhost:8000/
 
 If you want to serve the german version of the site, run `make serve LANG=de`.
 

@@ -7,11 +7,12 @@ all: assets html
 html: distdir
 	python scripts/generate_html.py
 
-fetch: distdir
+results.json:
 	mkdir -p /tmp/votation_results
 	python scripts/fetch_results.py
 
-serve: assets html
+serve: results.json assets html
+	cp results.json dist/
 	elm-live src/Main.elm -H --dir=dist --start-page=index_$(LANG).html -- --debug --output=dist/main.js
 
 clean:
