@@ -1,4 +1,4 @@
-module Translation exposing (Language(..), MsgIdTranslator, MultiTranslator, TranslatedString, TranslationMsgId(..), Translator, fromLanguageCode, multiTranslator, translate, translateMsg)
+module Translation exposing (Language(..), MsgIdTranslator, MultiTranslator, TranslatedString, TranslationMsgId(..), Translator, fromLanguageCode, multiTranslator, translate)
 
 
 type Language

@@ -5,7 +5,6 @@ module Ui exposing
     , chevronDown
     , chevronUp
     , colors
-    , crossIcon
     , heading1
     , heading2
     , headingStyle
@@ -16,7 +15,6 @@ module Ui exposing
     , progressBar
     , radioThatLooksLikeACheckbox
     , spacing
-    , votationChoicesInlineBreakpoint
     )
 
 import Css

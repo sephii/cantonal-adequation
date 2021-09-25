@@ -1,4 +1,4 @@
-module Canton exposing (Canton(..), cantonParticle, toCanton, toFullName, toString)
+module Canton exposing (Canton(..), cantonParticle, toCanton, toFullName)
 
 import Translation
 
@@ -146,88 +146,6 @@ toFullName canton =
 
         JU ->
             { fr = "Jura", de = "Jura" }
-
-
-toString : Canton -> String
-toString canton =
-    case canton of
-        ZH ->
-            "ZH"
-
-        BE ->
-            "BE"
-
-        LU ->
-            "LU"
-
-        UR ->
-            "UR"
-
-        SZ ->
-            "SZ"
-
-        OW ->
-            "OW"
-
-        NW ->
-            "NW"
-
-        GL ->
-            "GL"
-
-        ZG ->
-            "ZG"
-
-        FR ->
-            "FR"
-
-        SO ->
-            "SO"
-
-        BS ->
-            "BS"
-
-        BL ->
-            "BL"
-
-        SH ->
-            "SH"
-
-        AR ->
-            "AR"
-
-        AI ->
-            "AI"
-
-        SG ->
-            "SG"
-
-        GR ->
-            "GR"
-
-        AG ->
-            "AG"
-
-        TG ->
-            "TG"
-
-        TI ->
-            "TI"
-
-        VD ->
-            "VD"
-
-        VS ->
-            "VS"
-
-        NE ->
-            "NE"
-
-        GE ->
-            "GE"
-
-        JU ->
-            "JU"
 
 
 toCanton : String -> Maybe Canton

@@ -2,12 +2,7 @@ module Date exposing
     ( Date
     , Month(..)
     , dateDecoder
-    , dateParser
     , humanizeDate
-    , monthParser
-    , monthToInt
-    , monthToString
-    , parseDate
     , toString
     )
 
