@@ -2,7 +2,7 @@ LANG := fr
 
 all: assets html
 	elm-optimize-level-2 src/Main.elm --output=dist/main.js
-	esbuild --minify --pure:A2 --pure:A3 --pure:A4 --pure:A5 --pure:A6 --pure:A7 --pure:A8 --pure:A9 --pure:F2 --pure:F3 --pure:F3 --pure:F4 --pure:F5 --pure:F6 --pure:F7 --pure:F8 --pure:F9 dist/main.js | sponge dist/main.js
+	uglifyjs dist/main.js --compress 'pure_funcs="F2,F3,F4,F5,F6,F7,F8,F9,A2,A3,A4,A5,A6,A7,A8,A9",pure_getters,keep_fargs=false,unsafe_comps,unsafe' | uglifyjs --mangle | sponge dist/main.js
 
 html: distdir
 	python scripts/generate_html.py
