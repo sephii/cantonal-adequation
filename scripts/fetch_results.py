@@ -111,7 +111,8 @@ async def download_resource(
         async with httpx.AsyncClient() as client:
             response = await client.get(url, headers={"Accept": "application/json"})
             with open(cache_file, "w") as fd:
-                fd.write(response.text)
+                # httpx wrongfully detects encoding as cp775 when using `response.text`
+                fd.write(response.content.decode("utf-8"))
 
     return cache_file
 
