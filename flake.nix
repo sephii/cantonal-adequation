@@ -21,6 +21,7 @@
           installPhase = ''
             mkdir $out
             cp -r dist/* $out
+            cp results.json $out
           '';
           buildInputs = with pkgs;
             let pythonEnv = python38.withPackages (ps: [ ps.httpx ]);
