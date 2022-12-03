@@ -24,7 +24,7 @@
             cp results.json $out
           '';
           buildInputs = with pkgs;
-            let pythonEnv = python38.withPackages (ps: [ ps.httpx ]);
+            let pythonEnv = python3.withPackages (ps: [ ps.httpx ]);
             in [
               pythonEnv
 
